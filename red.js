@@ -19,8 +19,12 @@ var gender = function(){
     me = m.reduce( function(x,y) { return x + y} )
 
     return [ 100 * fe / ( fe + me ) , 100 * me / ( fe + me )  ]
-
+    
 }
 
+var med = function(){
+    
+    
+}
 console.log("ggg")
 console.log(gender())
