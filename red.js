@@ -12,13 +12,13 @@ console.log(par);
 
 var gender = function(){
     
-    
+    //num of females nd males for each age
     var f = par.map( function(o){ return o["females"] } )
     var m = par.map( function(o){ return o["males"] } )
-
+    //sum them
     fe = f.reduce( function(x,y) { return x + y} )
     me = m.reduce( function(x,y) { return x + y} )
-
+    //percentage of males and females
     info = [ 100 * fe / ( fe + me ) , 100 * me / ( fe + me )  ]
     var fs = "% Females:" + info[0];
     var ms = "% Males:" + info[1];
@@ -68,10 +68,13 @@ var minors = function(){
 	{ "g": 3214, "age":11}
 	]
 */
+    //all elements where age<18	
     var ages = par.filter(o => o["age"]<18 )
     console.log(ages)
+    //total number of people for each above element
     var ag = ages.map(function(o) { return o["total"]})
     console.log(ag)
+    //sum the totals
     var a = ag.reduce( function(x,y) { return x + y} )
     console.log(a)
 
