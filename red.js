@@ -25,14 +25,40 @@ var gender = function(){
     
     document.getElementById("gender").innerHTML = fs + "\n" + ms;
     
-    
-    
 }
 
-var med = function(){
+// Find the median of the dataset:
+var median = function(){
+    // Extract Total Population Numbers for each age
+    var totals = par.map( function(obj) {return obj["total"]} );
+    totalPop = totals.reduce(function(x,y) { return x + y });
+    console.log("TOTAL POP: ", totalPop);
+
+    // Find halfway point
+    var halfway = totalPop/2.0;
+    console.log("HALF: ", halfway);
+    console.log("TOTALS: ", totals);
+
+    // Test Data:
+    // totals = [10,10,10,25,11];
+    // halfway = 33;
     
-    
+    // Find the age of the halfway person
+    var counter = 0;
+    var currAge = -1;
+    while( counter < halfway){
+	currAge += 1;
+	counter += totals[currAge];
+    }
+
+    // Send result to the HTML
+    document.getElementById("median").innerHTML = "Median Age: " + currAge;
+
+    return currAge;	
 }
+
+// Test:
+console.log("MED: ", median());
 
 var minors = function(){
 /*    par = [
