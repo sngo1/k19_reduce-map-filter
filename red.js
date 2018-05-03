@@ -11,14 +11,21 @@ var par = JSON.parse(data);
 console.log(par);
 
 var gender = function(){
-
+    
+    
     var f = par.map( function(o){ return o["females"] } )
     var m = par.map( function(o){ return o["males"] } )
 
     fe = f.reduce( function(x,y) { return x + y} )
     me = m.reduce( function(x,y) { return x + y} )
 
-    return [ 100 * fe / ( fe + me ) , 100 * me / ( fe + me )  ]
+    info = [ 100 * fe / ( fe + me ) , 100 * me / ( fe + me )  ]
+    var fs = "% Females:" + info[0];
+    var ms = "% Males:" + info[1];
+    
+    document.getElementById("gender").innerHTML = fs + "\n" + ms;
+    
+    
     
 }
 
@@ -26,5 +33,5 @@ var med = function(){
     
     
 }
-console.log("ggg")
-console.log(gender())
+
+gender()
