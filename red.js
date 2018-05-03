@@ -34,4 +34,24 @@ var med = function(){
     
 }
 
+var minors = function(){
+/*    par = [
+	{ "g": 13214, "age":15},
+	{ "g": 1324, "age":19},
+	{ "g": 1214, "age":23},
+	{ "g": 3214, "age":11}
+	]
+*/
+    var ages = par.filter(o => o["age"]<18 )
+    console.log(ages)
+    var ag = ages.map(function(o) { return o["total"]})
+    console.log(ag)
+    var a = ag.reduce( function(x,y) { return x + y} )
+    console.log(a)
+
+    document.getElementById("age").innerHTML = "Number of Minors: " + a;
+}
+			 
+			   
 gender()
+minors()
